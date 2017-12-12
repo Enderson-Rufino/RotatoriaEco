@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RotatoriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Autorizacao">
+          <Key>
+            <PropertyRef Name="AutCod" />
+          </Key>
+          <Property Name="AutCod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VeiPla" Type="char" MaxLength="8" />
+          <Property Name="AutDatInc" Type="datetime" />
+          <Property Name="AutdatPro" Type="date" />
+          <Property Name="AutUsuInc" Type="int" />
+          <Property Name="AutDatPas" Type="datetime" />
+          <Property Name="AutUsuPas" Type="int" />
+          <Property Name="AutNumEix" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="UsuCod" />
+          </Key>
+          <Property Name="UsuCod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsuNom" Type="varchar" MaxLength="50" />
+          <Property Name="UsuMai" Type="varchar" MaxLength="100" />
+          <Property Name="UsuEmp" Type="varchar" MaxLength="50" />
+          <Property Name="UsuPer" Type="char" MaxLength="1" />
+          <Property Name="UsuSit" Type="char" MaxLength="1" />
+          <Property Name="UsuSen" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Veiculo">
+          <Key>
+            <PropertyRef Name="VeiPla" />
+          </Key>
+          <Property Name="VeiPla" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="VeiMar" Type="varchar" MaxLength="20" />
+          <Property Name="VeiMod" Type="varchar" MaxLength="20" />
+          <Property Name="VeiCor" Type="varchar" MaxLength="20" />
+          <Property Name="VeiEix" Type="smallint" />
+          <Property Name="VeiSit" Type="char" MaxLength="1" />
+        </EntityType>
+        <Association Name="FK__Autorizac__AutUs__20C1E124">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Autorizacao" Type="Self.Autorizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="UsuCod" />
+            </Principal>
+            <Dependent Role="Autorizacao">
+              <PropertyRef Name="AutUsuInc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Autorizac__AutUs__21B6055D">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Autorizacao" Type="Self.Autorizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="UsuCod" />
+            </Principal>
+            <Dependent Role="Autorizacao">
+              <PropertyRef Name="AutUsuPas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Autorizac__VeiPl__1FCDBCEB">
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="0..1" />
+          <End Role="Autorizacao" Type="Self.Autorizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Veiculo">
+              <PropertyRef Name="VeiPla" />
+            </Principal>
+            <Dependent Role="Autorizacao">
+              <PropertyRef Name="VeiPla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RotatoriaModelStoreContainer">
+          <EntitySet Name="Autorizacao" EntityType="Self.Autorizacao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Veiculo" EntityType="Self.Veiculo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Autorizac__AutUs__20C1E124" Association="Self.FK__Autorizac__AutUs__20C1E124">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Autorizacao" EntitySet="Autorizacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Autorizac__AutUs__21B6055D" Association="Self.FK__Autorizac__AutUs__21B6055D">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Autorizacao" EntitySet="Autorizacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Autorizac__VeiPl__1FCDBCEB" Association="Self.FK__Autorizac__VeiPl__1FCDBCEB">
+            <End Role="Veiculo" EntitySet="Veiculo" />
+            <End Role="Autorizacao" EntitySet="Autorizacao" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RotatoriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Autorizacao">
+          <Key>
+            <PropertyRef Name="AutCod" />
+          </Key>
+          <Property Name="AutCod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VeiPla" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="AutDatInc" Type="DateTime" Precision="3" />
+          <Property Name="AutdatPro" Type="DateTime" Precision="0" />
+          <Property Name="AutUsuInc" Type="Int32" />
+          <Property Name="AutDatPas" Type="DateTime" Precision="3" />
+          <Property Name="AutUsuPas" Type="Int32" />
+          <Property Name="AutNumEix" Type="Int16" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Autorizac__AutUs__20C1E124" FromRole="Autorizacao" ToRole="Usuario" />
+          <NavigationProperty Name="Usuario1" Relationship="Self.FK__Autorizac__AutUs__21B6055D" FromRole="Autorizacao" ToRole="Usuario" />
+          <NavigationProperty Name="Veiculo" Relationship="Self.FK__Autorizac__VeiPl__1FCDBCEB" FromRole="Autorizacao" ToRole="Veiculo" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="UsuCod" />
+          </Key>
+          <Property Name="UsuCod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UsuNom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UsuMai" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UsuEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UsuPer" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="UsuSit" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="UsuSen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Autorizacao" Relationship="Self.FK__Autorizac__AutUs__20C1E124" FromRole="Usuario" ToRole="Autorizacao" />
+          <NavigationProperty Name="Autorizacao1" Relationship="Self.FK__Autorizac__AutUs__21B6055D" FromRole="Usuario" ToRole="Autorizacao" />
+        </EntityType>
+        <EntityType Name="Veiculo">
+          <Key>
+            <PropertyRef Name="VeiPla" />
+          </Key>
+          <Property Name="VeiPla" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="VeiMar" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VeiMod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VeiCor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VeiEix" Type="Int16" />
+          <Property Name="VeiSit" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Autorizacao" Relationship="Self.FK__Autorizac__VeiPl__1FCDBCEB" FromRole="Veiculo" ToRole="Autorizacao" />
+        </EntityType>
+        <Association Name="FK__Autorizac__AutUs__20C1E124">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Autorizacao" Type="Self.Autorizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="UsuCod" />
+            </Principal>
+            <Dependent Role="Autorizacao">
+              <PropertyRef Name="AutUsuInc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Autorizac__AutUs__21B6055D">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Autorizacao" Type="Self.Autorizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="UsuCod" />
+            </Principal>
+            <Dependent Role="Autorizacao">
+              <PropertyRef Name="AutUsuPas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Autorizac__VeiPl__1FCDBCEB">
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="0..1" />
+          <End Role="Autorizacao" Type="Self.Autorizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Veiculo">
+              <PropertyRef Name="VeiPla" />
+            </Principal>
+            <Dependent Role="Autorizacao">
+              <PropertyRef Name="VeiPla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RotatoriaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Autorizacao" EntityType="Self.Autorizacao" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="Veiculo" EntityType="Self.Veiculo" />
+          <AssociationSet Name="FK__Autorizac__AutUs__20C1E124" Association="Self.FK__Autorizac__AutUs__20C1E124">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Autorizacao" EntitySet="Autorizacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Autorizac__AutUs__21B6055D" Association="Self.FK__Autorizac__AutUs__21B6055D">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Autorizacao" EntitySet="Autorizacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Autorizac__VeiPl__1FCDBCEB" Association="Self.FK__Autorizac__VeiPl__1FCDBCEB">
+            <End Role="Veiculo" EntitySet="Veiculo" />
+            <End Role="Autorizacao" EntitySet="Autorizacao" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RotatoriaModelStoreContainer" CdmEntityContainer="RotatoriaEntities">
+          <EntitySetMapping Name="Autorizacao">
+            <EntityTypeMapping TypeName="RotatoriaModel.Autorizacao">
+              <MappingFragment StoreEntitySet="Autorizacao">
+                <ScalarProperty Name="AutCod" ColumnName="AutCod" />
+                <ScalarProperty Name="VeiPla" ColumnName="VeiPla" />
+                <ScalarProperty Name="AutDatInc" ColumnName="AutDatInc" />
+                <ScalarProperty Name="AutdatPro" ColumnName="AutdatPro" />
+                <ScalarProperty Name="AutUsuInc" ColumnName="AutUsuInc" />
+                <ScalarProperty Name="AutDatPas" ColumnName="AutDatPas" />
+                <ScalarProperty Name="AutUsuPas" ColumnName="AutUsuPas" />
+                <ScalarProperty Name="AutNumEix" ColumnName="AutNumEix" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="RotatoriaModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="UsuCod" ColumnName="UsuCod" />
+                <ScalarProperty Name="UsuNom" ColumnName="UsuNom" />
+                <ScalarProperty Name="UsuMai" ColumnName="UsuMai" />
+                <ScalarProperty Name="UsuEmp" ColumnName="UsuEmp" />
+                <ScalarProperty Name="UsuPer" ColumnName="UsuPer" />
+                <ScalarProperty Name="UsuSit" ColumnName="UsuSit" />
+                <ScalarProperty Name="UsuSen" ColumnName="UsuSen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Veiculo">
+            <EntityTypeMapping TypeName="RotatoriaModel.Veiculo">
+              <MappingFragment StoreEntitySet="Veiculo">
+                <ScalarProperty Name="VeiPla" ColumnName="VeiPla" />
+                <ScalarProperty Name="VeiMar" ColumnName="VeiMar" />
+                <ScalarProperty Name="VeiMod" ColumnName="VeiMod" />
+                <ScalarProperty Name="VeiCor" ColumnName="VeiCor" />
+                <ScalarProperty Name="VeiEix" ColumnName="VeiEix" />
+                <ScalarProperty Name="VeiSit" ColumnName="VeiSit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
