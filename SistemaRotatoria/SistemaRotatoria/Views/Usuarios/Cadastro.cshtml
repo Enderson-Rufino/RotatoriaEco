@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+<h2>Cadastro</h2>
+
+<form method="post" action="/Usuarios/Cadastro">
+
+    <div class="form-group">
+        <div>
+            <label>Nome</label>
+            <input type="text" name="UsuNom" class="form-control" placeholder="Nome" />
+        </div>
+        <div>
+            <label>E-mail</label>
+            <input type="text" name="UsuMai" class="form-control" placeholder="E-mail" />
+        </div>
+
+        <div>
+            <label>Senha</label>
+            <input id="Senha" type="password" name="UsuSen" class="form-control" placeholder="Senha" /> @*<img id="OlhoSenha" src="~/Imagens/ui-icon-pack-14-512.png" />*@
+
+        </div>
+
+        <div>
+            <label>Empresa</label>
+            <input type="text" name="UsuEmp" class="form-control" placeholder="Empresa" />
+        </div>
+
+        <div>
+            <label>Perfil</label>
+            <select name="UsuPer" class="form-control">
+                <option value="A">Administrador</option>
+                <option value="C">Cliente</option>
+                <option value="G">Guarita</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Situação</label>
+            <select name="UsuSit" class="form-control">
+                <option value="A">Ativo</option>
+                <option value="I">Inativo</option>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <input type="submit" value="Salvar" />
+    </div>
+</form>
+
+

@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/Usuario/Login.css" rel="stylesheet" />
+<script src="~/Scripts/Usuario/Login.js"></script>
+
+<div class="container">
+    <div class="card card-container">
+        <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+        <form  method="post" action="/Usuarios/Login">
+            <div class="form-group" id="divlog">
+                <div class="form-group">
+                    <label>Usuário</label>                    
+                    <input type="text" name="email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" name="senha" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Entrar" class="btn btn-default" />
+                </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+        </form>
+    </div>
+</div>

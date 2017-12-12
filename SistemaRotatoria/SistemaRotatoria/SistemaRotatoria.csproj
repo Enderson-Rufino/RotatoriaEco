@@ -156,6 +156,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RotatoriaController.cs" />
+    <Compile Include="Controllers\TransactionScope.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -188,10 +191,13 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Usuario\Index.css" />
+    <Content Include="Content\Usuario\Login.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagem\Backgorund-Login.jpeg" />
     <Content Include="Models\Rotatoria.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Rotatoria.edmx</DependentUpon>
@@ -202,6 +208,8 @@
       <DependentUpon>Rotatoria.edmx</DependentUpon>
       <LastGenOutput>Rotatoria.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\AutorizacoesUsuario\GetAutorizacoesUsuario.js" />
+    <Content Include="Scripts\AutorizacoesUsuario\SalvarAutorizacoesUsuario.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -225,6 +233,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Usuario\Editar.js" />
+    <Content Include="Scripts\Usuario\ListaUsuario.js" />
+    <Content Include="Scripts\Usuario\Login.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -240,6 +251,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Rotatoria\AutorizacoesUsuario.cshtml" />
+    <Content Include="Views\Rotatoria\ListaAutorizacaoUsuario.cshtml" />
+    <Content Include="Views\Usuarios\Cadastro.cshtml" />
+    <Content Include="Views\Usuarios\Login.cshtml" />
+    <Content Include="Views\Usuarios\Editar.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

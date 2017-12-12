@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "ListaAutorizacaoUsuario";
+}
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/AutorizacoesUsuario/GetAutorizacoesUsuario.js"></script>
+
+<!--tabela que mostra todas as autorizações feitas pelo usuario-->
+<div class="container">
+    <div class="row">
+        <!-- inicio do PANEL-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <!--tituo do PANEL-->
+                <h3 class="panel-title">Minhas Autorizações</h3>
+                <span class="pull-right">
+                    <ul class="nav panel-tabs">
+                        <li class="active"><a href="#tab1" data-toggle="tab"><!--aqui pode colocar um nome na coluna--></a></li>
+                    </ul>
+                </span>
+            </div>
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="test">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            AutCod
+                                        </strong>
+                                    </td>
+                                    <td>
+                                        <strong>
+                                            Data Programada
+                                        </strong>
+                                    </td>
+                                    <td>
+                                        <strong>
+                                            Placa
+                                        </strong>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody id="BodyAutorizacao"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+﻿a:link {
+        text-decoration: none;
+        color:black;
+    }
+
+.tab-pane{
+  height:375px;
+  overflow-y:scroll;
+  width:100%;
+}
+
+#NovaAutorizacao{
+    position: absolute;
+    right:200px;
+    top:72px;
+}
