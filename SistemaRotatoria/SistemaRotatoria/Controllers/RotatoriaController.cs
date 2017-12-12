@@ -11,6 +11,11 @@ namespace SistemaRotatoria.Controllers
 {
     public class RotatoriaController : Controller
     {
+        public static int cod;
+
+        public static void CodUsuario(){
+
+        }
         // GET: Rotatoria
         public ActionResult Index()
         {
@@ -75,10 +80,11 @@ namespace SistemaRotatoria.Controllers
 
         public ActionResult GetAutorizacoesUsuario()
         {
+            var CodUsuario = cod;
             var db = new RotatoriaEntities();
             List<Autorizacao> ListGetAutorizacoesUsuario = new List<Autorizacao>();
             db.Configuration.ProxyCreationEnabled = false;
-            ListGetAutorizacoesUsuario = db.Autorizacao.Select(e => e).ToList();
+            ListGetAutorizacoesUsuario = db.Autorizacao.Where(e => e.AutUsuInc == CodUsuario).ToList();
 
             return Json(ListGetAutorizacoesUsuario, JsonRequestBehavior.AllowGet);
         }

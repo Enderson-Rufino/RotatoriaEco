@@ -2,13 +2,18 @@
 @{
     Layout = null;
 }
+<!--referencia do bootstrap-->
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<!--referencia do css da view-->
 <link href="~/Content/Usuario/Login.css" rel="stylesheet" />
+
+<!--referencia do js da view-->
 <script src="~/Scripts/Usuario/Login.js"></script>
 
 <div class="container">
-    <div class="card card-container">
-        <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    <div class="card card-container">        
+        <img id="Logo-Login" src="~/Imagem/Logo-Login.png" />
         <p id="profile-name" class="profile-name-card"></p>
         <form  method="post" action="/Usuarios/Login">
             <div class="form-group" id="divlog">

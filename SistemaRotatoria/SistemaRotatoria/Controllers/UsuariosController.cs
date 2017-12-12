@@ -113,6 +113,10 @@ namespace SistemaRotatoria.Controllers
             string email = frm["email"];
             string senha = frm["senha"];
             mail = frm["email"];
+            var BuscaCodUsuario = db.Usuario.FirstOrDefault(u => u.UsuMai == email && u.UsuSen == senha);
+            var CodUsuario = BuscaCodUsuario.UsuCod;
+            RotatoriaController.cod = CodUsuario;
+
             if (senha != null) //Criptografa senha que veio da view de login
             {
                 System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
@@ -135,14 +139,30 @@ namespace SistemaRotatoria.Controllers
             {
                 Session["UserId"] = mail;
                 var perfil = usuario.UsuPer;
-                var admin = string.Compare(perfil, "A");
+                var admin  = string.Compare(perfil, "A");
+                var cli    = string.Compare(perfil, "C");
+                var gua    = string.Compare(perfil, "G");
+
                 if (admin == 0)
                 {
                     return RedirectToAction("Index");
                 }
                 else
                 {
-                    return View(usuario);
+                    if(cli == 0)
+                    {
+                        return RedirectToAction("ListaAutorizacaoUsuario", "Rotatoria");
+                    }else
+                    {
+                        if(gua == 0)
+                        {
+                            return RedirectToAction("ListaAutorizacaoUsuario", "Rotatoria");
+                        }else
+                        {
+                            return View(usuario);
+                        }
+                    }
+                   
                 }
             }
             else

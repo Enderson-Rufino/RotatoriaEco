@@ -197,7 +197,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Imagem\Backgorund-Login.jpeg" />
+    <Content Include="Imagem\Logo-Login.png" />
     <Content Include="Models\Rotatoria.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Rotatoria.edmx</DependentUpon>
